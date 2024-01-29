@@ -15,7 +15,7 @@ int main() {
 	// The value of right will always be greater than or equal to the size of the linked list
 	int left, right;
 
-	// Case 1: 
+	// Case 1: General Case
 	left = 2; right = 3;
 	ListNode* Case1 = createLinkedList({ 1, 2, 3, 4, 5 });
 	printLinkedList(reverseBetween(Case1, left, right)); // Expected: [ 1, 3, 2, 4, 5 ]
