@@ -13,9 +13,53 @@ int main() {
 	// Given the head of a singly linked list and two integers left and right where left <= right, 
 	// reverse the nodes of the list from position left to position right, and return the reversed list.
 	// The value of right will always be greater than or equal to the size of the linked list
-	printLinkedList(createLinkedList({ 1, 2, 3, 4, 5 }));
-	
+	int left, right;
 
+	// Case 1: 
+	left = 2; right = 3;
+	ListNode* Case1 = createLinkedList({ 1, 2, 3, 4, 5 });
+	printLinkedList(reverseBetween(Case1, left, right)); // Expected: [ 1, 3, 2, 4, 5 ]
+
+	// Case 2: Empty List Case
+	left = 1; right = 1;
+	ListNode* Case2 = createLinkedList({});
+	printLinkedList(reverseBetween(Case2, left, right)); // Expected: []
+
+	// Case 3: Single Element List Case
+	left = 1; right = 1;
+	ListNode* Case3 = createLinkedList({ 1 });
+	printLinkedList(reverseBetween(Case3, left, right)); // Expected: [ 1 ]
+
+	// Case 4: Full Reverse Case
+	left = 1; right = 5;
+	ListNode* Case4 = createLinkedList({ 1, 2, 3, 4, 5 });
+	printLinkedList(reverseBetween(Case4, left, right)); // Expected: [ 5, 4, 3, 2, 1 ]
+
+	// Case 5: Left at Head Case
+	left = 1; right = 3;
+	ListNode* Case5 = createLinkedList({ 1, 2, 3, 4, 5 });
+	printLinkedList(reverseBetween(Case5, left, right)); // Expected: [ 3, 2, 1, 4, 5 ]
+
+	// Case 6: Right at Tail Case
+	left = 3; right = 5;
+	ListNode* Case6 = createLinkedList({ 1, 2, 3, 4, 5 });
+	printLinkedList(reverseBetween(Case6, left, right)); // Expected: [ 1, 2, 5, 4, 3 ]
+
+	// Case 7: Left Equals Right Case
+	left = 3; right = 3;
+	ListNode* Case7 = createLinkedList({ 1, 2, 3, 4, 5 });
+	printLinkedList(reverseBetween(Case7, left, right)); // Expected: [ 1, 2, 3, 4, 5 ]
+
+	// Case 8: List with Two Elements Case
+	left = 1; right = 2;
+	ListNode* Case8 = createLinkedList({ 1, 2 });
+	printLinkedList(reverseBetween(Case8, left, right)); // Expected: [ 2, 1 ]
+
+	// Case 9: Invalid Range Case
+	left = 4; right = 2;
+	ListNode* Case9 = createLinkedList({ 1, 2, 3, 4, 5 });
+	printLinkedList(reverseBetween(Case9, left, right)); // Expected: No change [ 1, 2, 3, 4, 5 ]
+	
 	return 0;
 }
 
