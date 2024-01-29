@@ -1,9 +1,11 @@
 #include <iostream>
+#include <vector>
 #include <stack>
 #include "ListNode.h"
 using namespace std;
 
 ListNode* reverseBetween(ListNode* head, int left, int right);
+ListNode* createLinkedList(vector<int> container);
 
 int main() {
 	// Given the head of a singly linked list and two integers left and right where left <= right, 
@@ -13,7 +15,6 @@ int main() {
 	return 0;
 }
 
-// First Implementation
 ListNode* reverseBetween(ListNode* head, int left, int right) {
 	// First check if head is nullptr to avoid dereferencing a nullptr
 	if (head == nullptr || head->next == nullptr || left == right) { return head; }
@@ -55,5 +56,28 @@ ListNode* reverseBetween(ListNode* head, int left, int right) {
 	// Connect the rest of the list
 	dummy->next = temp;
 
+	return head;
+}
+
+ListNode* createLinkedList(vector<int> container) {
+	if (container.empty()) { return nullptr; }
+
+	ListNode* head = nullptr;
+	ListNode* tail = nullptr;
+
+	for (int element : container) {
+		ListNode* node = new ListNode(element);
+		
+		// The first element becomes our head node
+		if (!head) {
+			head = node;
+		}
+		else {
+			tail->next = node;
+		}
+		// Move the tail pointer to the new last node
+		tail = node;
+	}
+	
 	return head;
 }
