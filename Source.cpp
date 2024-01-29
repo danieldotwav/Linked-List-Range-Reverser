@@ -81,3 +81,11 @@ ListNode* createLinkedList(vector<int> container) {
 	
 	return head;
 }
+
+void deleteLinkedList(ListNode* head) {
+	while (head) {
+		ListNode* temp = head;
+		head = head->next;
+		delete temp;
+	}
+}
