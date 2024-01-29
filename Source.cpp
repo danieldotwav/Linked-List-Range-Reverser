@@ -6,11 +6,15 @@ using namespace std;
 
 ListNode* reverseBetween(ListNode* head, int left, int right);
 ListNode* createLinkedList(vector<int> container);
+void deleteLinkedList(ListNode* head);
+void printLinkedList(ListNode* head);
 
 int main() {
 	// Given the head of a singly linked list and two integers left and right where left <= right, 
 	// reverse the nodes of the list from position left to position right, and return the reversed list.
 	// The value of right will always be greater than or equal to the size of the linked list
+	printLinkedList(createLinkedList({ 1, 2, 3, 4, 5 }));
+	
 
 	return 0;
 }
@@ -88,4 +92,18 @@ void deleteLinkedList(ListNode* head) {
 		head = head->next;
 		delete temp;
 	}
+}
+
+void printLinkedList(ListNode* head) {
+	cout << "[ ";
+	while (head) {
+		if (head->next == nullptr) {
+			cout << head->val;
+		}
+		else {
+			cout << head->val << ", ";
+		}
+		head = head->next;
+	}
+	cout << " ]\n\n";
 }
